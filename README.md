@@ -4,6 +4,16 @@ Implementación de API REST con Java, Spring Boot + Conexión con MongoDB
 ## Despliegue en Heroku
 [![Deployed to Heroku](https://www.herokucdn.com/deploy/button.png)](https://nevitsapp.herokuapp.com/v1/health)
 
+## Pruebas de ejemplo con Postman
+* Este endpoint nos muestra el estado del API, este no requiere de token de autorización.
+![](img/health)
+* Antes de hacer la autenticación, observemos lo que sucede al realizar una peticion en un endpoint que si requiere de token de autorización. Manda error 403.
+![](img/error403)
+* Para obtener el token de autorización usamos el endpoint de autenticación, en este ejemplo hago uso de un usuaio previamente creado (el usuario se envia como un JSON), enviamos la petición y obtenemos el token.
+![](img/auth)
+* Ahora vamos a usar el mismo endpoint que anteriormente nos mando el error, pero en esta ocasión insertamos en el header el token que obtuvimos. finalmente ya tenemos acceso al enpoint y podemos ver su contenido en este caso la lista de usuarios.
+![](img/users)
+
 ### Documentación de referencia
 Para mayor referencia, considere las siguientes secciones:
 
