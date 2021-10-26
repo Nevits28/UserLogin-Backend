@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import static com.nevits.utils.Constants.CLAIMS_ROLES_KEY;
 import static com.nevits.utils.Constants.TOKEN_DURATION_MINUTES;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping( "/v1/auth" )
@@ -29,7 +30,8 @@ public class AuthController {
     public AuthController(@Autowired UserService userService) {
         this.userService = userService;
     }
-
+    
+    @CrossOrigin(origins="http://localhost:3000")
     @PostMapping
     public TokenDto login(@RequestBody LoginDto loginDto) {
         User user = userService.findByEmail(loginDto.email);
